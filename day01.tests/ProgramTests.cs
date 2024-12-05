@@ -15,4 +15,18 @@ public class ProgramTests
         // Assert
         Assert.Equal(11, result);
     }
+    
+    [Fact]
+    public void TestReturnSimilarityScore()
+    {
+        // Arrange
+        var listA = new List<int> { 3, 4, 2, 1, 3, 3 };
+        var listB = new List<int> { 4, 3, 5, 3, 9, 3 };
+        
+        // Act
+        var result = Program.ReturnSimilarityScore(listA, listB);
+        
+        // Assert
+        Assert.Equal(31, result);
+    }
 }

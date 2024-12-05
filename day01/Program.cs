@@ -1,4 +1,6 @@
-﻿namespace day01
+﻿using System.Diagnostics;
+
+namespace day01
 {
     public class Program
     {
@@ -19,6 +21,7 @@
             }
 
             Console.WriteLine(ReturnTotalDistance(listA, listB));
+            Console.WriteLine(ReturnSimilarityScore(listA, listB));
         }
 
         public static long ReturnTotalDistance(List<int> listA, List<int> listB)
@@ -36,6 +39,19 @@
             }
 
             return totalDistance;
+        }
+
+        public static long ReturnSimilarityScore(List<int> listA, List<int> listB)
+        {
+            var similarityScore = 0L;
+            foreach (var number in listA)
+            {
+                // check now many times number appears in listB
+                var count = listB.Count(x => x == number);
+                similarityScore += number * count;
+            }
+            
+            return similarityScore;
         }
     }
 }
